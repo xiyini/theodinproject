@@ -1,17 +1,44 @@
 /* eslint react/no-danger: 0 */
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-const LessonContentInput = ({ content }) => (
-  <div className="lesson-content"><div dangerouslySetInnerHTML={{ __html: content }} /></div>
-);
+const LessonContentPreview = ({ content }) => {
+  const handleAnchorClick = (event) => {
+    event.preventDefault();
+  };
 
-LessonContentInput.defaultProps = {
+  useEffect(() => {
+    const anchorNodes = document.querySelectorAll('a');
+
+    const internalLinks = [...anchorNodes].filter((node) => {
+      const nodeLink = node.attributes.href.value;
+      return nodeLink[0] === '#';
+    });
+
+    internalLinks.forEach((node) => {
+      node.addEventListener('click', handleAnchorClick);
+    });
+
+    return () => {
+      internalLinks.forEach((node) => {
+        node.removeEventListener('click', handleAnchorClick);
+      });
+    };
+  }, [content]);
+
+  return (
+    <div className="lesson-content">
+      <div dangerouslySetInnerHTML={{ __html: content }} />
+    </div>
+  );
+};
+
+LessonContentPreview.defaultProps = {
   content: '',
 };
 
-LessonContentInput.propTypes = {
+LessonContentPreview.propTypes = {
   content: PropTypes.string,
 };
 
-export default LessonContentInput;
+export default LessonContentPreview;
