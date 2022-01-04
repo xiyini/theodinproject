@@ -11,6 +11,7 @@ gem 'acts_as_votable'
 gem 'bootsnap', '~> 1.9.3', require: false
 gem 'bootstrap', '4.6.0'
 gem 'cancancan'
+gem 'cssbundling-rails', '~> 1.0.0'
 gem 'devise', '>= 4.7.1'
 gem 'discard', '~> 1.2'
 gem 'discordrb-webhooks'

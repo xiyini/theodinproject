@@ -84,8 +84,8 @@ GEM
       activesupport (>= 3.0.0, < 6.2)
       ruby2_keywords (>= 0.0.2, < 1.0)
     ast (2.4.2)
-    autoprefixer-rails (10.2.5.0)
-      execjs (< 2.8.0)
+    autoprefixer-rails (10.4.0.0)
+      execjs (~> 2)
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
@@ -126,6 +126,8 @@ GEM
     crass (1.0.6)
     css_parser (1.7.1)
       addressable
+    cssbundling-rails (1.0.0)
+      railties (>= 6.0.0)
     cuprite (0.13)
       capybara (>= 2.1, < 4)
       ferrum (~> 0.11.0)
@@ -569,6 +571,7 @@ DEPENDENCIES
   cancancan
   capybara
   climate_control
+  cssbundling-rails (~> 1.0.0)
   cuprite
   derailed
   devise (>= 4.7.1)

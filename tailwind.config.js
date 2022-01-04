@@ -1,5 +1,5 @@
 module.exports = {
-  darkMode: false, // or 'media' or 'class'
+  mode: 'jit',
   theme: {
     extend: {
       colors: {
@@ -11,18 +11,14 @@ module.exports = {
       }
     }
   },
-  purge: {
-    content: [
-      "./app/**/*.html.erb",
-      "./app/components/*.html.erb",
-      "app/assets/images/icons/*svg"
-    ],
-  },
-  variants: {
-    extend: {},
-  },
+  content: [
+    './app/views/**/*.html.erb',
+    './app/helpers/**/*.rb',
+    './app/javascript/**/*.js',
+    './app/components/*.html.erb',
+    'app/assets/images/icons/*svg',
+  ],
   corePlugins: {
     container: false,
   },
-  plugins: [],
 }
